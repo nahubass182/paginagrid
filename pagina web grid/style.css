@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;   /*para centrar la pagina*/
+    display: grid;
+    grid-gap: 20px;  /*sirve para dejar espacio entre los contendios*/
+    grid-template-columns: repeat(3, 1fr);  /*3 columnas*/
+    grid-template-rows: repeat(4, auto);  /*4 filas*/
+}
+
+.contenedor > div,
+.contenedor .header,
+.contenedor .contenido,
+.contenedor .sidebar,
+.contenedor .footer{
+    background: gray;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.contenedor .header{
+    background: #12203e;
+    color: #fff;
+    grid-column: 1 / 4;
+}
+
+.contenedor .contenido{
+    grid-column: span 2;
+}
+
+.contenedor .sidebar{
+    grid-column: 3 / 4;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-row: 2 / 4;
+    min-height: 100px;   /*al achicar la ventana, el sidebar no baja de 100px*/
+}
+
+.contenedor .widget-1,
+.contenedor .widget-2{
+    background: rgb(58, 6, 6);
+    height: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor .footer{
+    background: rgb(118, 111, 124);
+    grid-column: span 3;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor .contenido {
+        grid-column: 1 / -1;
+    }
+
+    .contenedor .sidebar {
+        grid-column: 1 / -1;
+        grid-row: 3 / 4;
+    }
+
+    .contenedor .widget-1 {
+        grid-column: 1 / 3;
+    }
+}
+
+
